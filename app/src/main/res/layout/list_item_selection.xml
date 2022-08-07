@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="187dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="16dp">
+
+    <ImageView
+        android:id="@+id/ivProduct"
+        android:layout_width="93dp"
+        android:layout_height="162dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/arndtregent_bottle" />
+
+    <TextView
+        android:id="@+id/tv_productName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Produktname"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/ivProduct"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="Jahrgang"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_productName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_productName"
+        app:layout_constraintTop_toBottomOf="@+id/tv_productName" />
+
+    <TextView
+        android:id="@+id/tv_taste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="trocken"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_year"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_year"
+        app:layout_constraintTop_toBottomOf="@+id/tv_year" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="377dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivProduct" />
+
+    <Button
+        android:id="@+id/btn_product"
+        android:layout_width="155dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#414E71"
+        android:fontFamily="@font/reem_kufi"
+        android:text="Zum Produkt"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="10,80 €"
+        app:layout_constraintEnd_toEndOf="@+id/tv_taste"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_taste"
+        app:layout_constraintTop_toBottomOf="@+id/tv_taste" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bildquelle: © speedysign | weingut-flaschenfotos.de"
+        android:textColor="#000000"
+        android:textSize="3sp"
+        app:layout_constraintEnd_toEndOf="@+id/ivProduct"
+        app:layout_constraintTop_toBottomOf="@+id/ivProduct" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,101 @@
+<resources>
+    <string name="app_name">Weinshop2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- Redwine -->
+    <string name="redwine1">Arndt F. Werner "REGENT"</string>
+    <string name="redwine2">Petershof Syrah "Y"</string>
+    <string name="redwine3">Riffel Spätburgunder</string>
+    <string name="redwine4">Thörle Spätburgunder"</string>
+
+    <!-- Whitewine -->
+    <string name="whitewine1">Arndt F. Werner Riesling</string>
+    <string name="whitewine2">Elefant Weißburgunder</string>
+    <string name="whitewine3">Riffel Weißer Burgunder</string>
+    <string name="whitewine4">Thörle Grauburgunder</string>
+    <string name="whitewine5">Thoerle Riesling</string>
+
+    <!-- Rosewine -->
+    <string name="rosewine1">Daniel Mattern "nature rosé"</string>
+    <string name="rosewine2">Petershof Rosé"</string>
+    <string name="rosewine3">Arndt F. Werner "Pink Summer</string>
+    <string name="rosewine4">Thörle Portugieser Weißherbst"</string>
+
+    <!-- Taste -->
+    <string name="redtaste1">trocken</string>
+    <string name="redtaste2">trocken</string>
+    <string name="redtaste3">trocken</string>
+    <string name="redtaste4">trocken</string>
+    <string name="whitetaste1">feinherb</string>
+    <string name="whitetaste2">trocken</string>
+    <string name="whitetaste3">trocken</string>
+    <string name="whitetaste4">halbtrocken</string>
+    <string name="whitetaste5">trocken</string>
+    <string name="rosetaste1">k.A.</string>
+    <string name="rosetaste2">feinherb</string>
+    <string name="rosetaste3">feinherb</string>
+    <string name="rosetaste4">feinherb</string>
+
+    <!-- Prices -->
+    <string name="redprice1">10,80 €</string>
+    <string name="redprice2">9,80 €</string>
+    <string name="redprice3">14,90 €</string>
+    <string name="redprice4">5,70 €</string>
+    <string name="whiteprice1">9,80 €</string>
+    <string name="whiteprice2">8,50 €</string>
+    <string name="whiteprice3">14,90 €</string>
+    <string name="whiteprice4">6,00 €</string>
+    <string name="whiteprice5">6,30 €</string>
+    <string name="roseprice1">15,00 €</string>
+    <string name="roseprice2">5,50 €</string>
+    <string name="roseprice3">7,30 €</string>
+    <string name="roseprice4">5,20 €</string>
+
+    <!-- Year -->
+    <string name="redyear1">2018</string>
+    <string name="redyear2">2018</string>
+    <string name="redyear3">2017</string>
+    <string name="redyear4">2019</string>
+    <string name="whiteyear1">2020</string>
+    <string name="whiteyear2">2021</string>
+    <string name="whiteyear3">2019</string>
+    <string name="whiteyear4">2020</string>
+    <string name="whiteyear5">2018</string>
+    <string name="roseyear1">k.A.</string>
+    <string name="roseyear2">2020</string>
+    <string name="roseyear3">2020</string>
+    <string name="roseyear4">2020</string>
+
+    <!-- Description -->
+    <string name="red_descreption1">Unser nuancenreicher, seit Jahren über die Genzen hinaus bekannter Sortenwein der Rebsorte Regent, der die Kraft mediteraner Aromenvielfalt mit samtigen Tanninen verbindet; Schokolade, Schmelz, Kräuter und getrocknete mediterrane Früchte, internationale Statur, dunkles Blaurot – ein Glücksgriff zu hartem Käse oder zur Zartbitterschokolade.
+    </string>
+    <string name="red_description2">Schlanker und kerniger Vertreter seiner Art. Tiefgründiges Rot; typische Aromen von Johannisbeere, Gewürzen, Nelken und etwas Leder. Ideal zu Tapas
+    </string>
+    <string name="red_description3">Beste Lagen auf den zentralen Südhängen des Binger Rochusberges liefern die idealen Voraussetzungen für diesen ausgeprägten und feinmineralischen Spätburgunder mit Aromen von Waldbeeren und feiner Würze. Löss und Lehm verleihen im seine Samtigkeit, in die die Tanninstruktur elegant eingebunden ist. Quarzit schenkt ihm das "gewisse Etwas" und der Ausbau im Holz einen feinen Schliff. Der Wein harmoniert zu dunklem Fleisch besonders gut. Ein echter Wein für Genießer und Kenner!
+    </string>
+    <string name="red_description4">Weich und fruchtig. Feine Taninstruktur. Das Weingut Thörle aus Gabsheim wurde 2018 vom Magazin "selection" als prämierter Betrieb ausgezeichnet! Mit Stolz kann das Weingut Thörle auf Gold- und Silbermedaillen sowie beste Bewertungen für ihre Weine blicken. Das familiär betriebene Weingut Thörle ist auch als Kreuzhof bekannt und liegt im rheinhessischen Länderdreieck zwischen Mainz, Alzey und Worms.
+    </string>
+
+    <string name="white_description1">Unser Riesling feinherb räumt seit Jahren die großen Preise ab; 1. und 2. Platz bei BEST OF RIESLING, durchweg Gold bei der Landesweinprämierung, intensive, konzentrierte Maracuja-/Litschinote, die feine, natürliche Restsüße in wunderbarer Ballance mit der typischen Fruchtsäure; bestens zu exotischen, asiatischen Speisen, oder einfach nach dem Essen zum weiteren Genuss.
+    </string>
+    <string name="white_description2">Das Weingut am Dom ist noch jung und dennoch über 230 Jahre alt. Mit ihm wurde ein nicht unbedeutender Teil der Wormser Geschichte neu belebt. Die hier hergestellten Weine vereinen die Einzigartigkeit von Lagen mit Jahrhunderte alter Tradition mit moderner Weinbautechnik und ermöglichen es so, alte Weine ganz neu zu erleben.Der Weißburgunder ist knackig frisch und fruchtig.
+Er hat alles das, was ein guter Weißburgunder eben braucht. Als Wein ist er ein toller Essenspartner und gleichzeitig ein Stimmungswein.
+    </string>
+    <string name="white_description3">Auf Tonmergel gewachsen, bringt dieser Wein eine tolle Fruchtbetonung mit. Im Duft vereinen sich Quitte, reife Birne, Ananas mit feiner Brioche. Fast schon opulent durch seine Cremigkeit und finessenreich durch seine Mineralik mit viel Länge und Charakter. Mit seinem runden Aroma passt er hervorragend zu gegrilltem und gebratenem Lachs oder herzhaften Käse.
+    </string>
+    <string name="white_description4">Leicht und fruchtig! Dieser milde Weißwein ist ideal für den Sommer. Aromen von rot-gelbem Apfel und Trockenobst machen diesen Grauburgunder fruchtig, vollmundig und angenehm mild.
+    </string>
+    <string name="white_description5">Vollmundig und fruchtig. Das Weingut Thörle aus Gabsheim wurde 2018 vom Magazin "selection" als prämierter Betrieb ausgezeichnet! Mit Stolz kann das Weingut Thörle auf Gold- und Silbermedaillen sowie beste Bewertungen für ihre Weine blicken. Das familiär betriebene Weingut Thörle ist auch als Kreuzhof bekannt und liegt im rheinhessischen Länderdreieck zwischen Mainz, Alzey und Worms.
+    </string>
+
+    <string name="rose_description1">Ein dunkler Roséwein aus Spätburgunder. Seine Farbe erinnert fast schon an einen hellen Rotwein und auch die Aromatik ist recht kräftig für einen rosé. Dieser harmonische und fruchtige Wein hat Aromen von Erdbeere und Cassis mit etwas Vanille und Haselnuss.
+    </string>
+    <string name="rose_description2">Typische Aromen von Erdbeeren, Himbeeren und frischen Kräutern. Ein charmanter pinkfarbener Rosé, der durch sein ausgewogenes Süße-Säure-Spiel vollmundig fruchtig und lecker schmeckt.
+    </string>
+    <string name="rose_description3">Ein wahrer Kultwein; er vereinigt die intensive Himbeer-Erdbeernote mit den feinen, zarten Strukturen. Obwohl er die verspielte, fruchtig frische Sommerlaune repräsentiert, spürt man die Intensität mit jedem Schluck und man genießt die feinperlige Frische – Schluck für Schluck für Schluck.
+    </string>
+    <string name="rose_description4">Fruchtiger Sommerwein. Erdbeere und Karamell. Das Weingut Thörle aus Gabsheim wurde 2018 vom Magazin "selection" als prämierter Betrieb ausgezeichnet! Mit Stolz kann das Weingut Thörle auf Gold- und Silbermedaillen sowie beste Bewertungen für ihre Weine blicken.
+    </string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

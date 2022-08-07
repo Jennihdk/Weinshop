@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.weinshop.ui.start.StartFragment"
+        android:label="StartFragment">
+        <action
+            android:id="@+id/action_startFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.weinshop.ui.selection.CategoryFragment"
+        android:label="Kategorien" >
+        <action
+            android:id="@+id/action_categoryFragment_to_selectionFragment"
+            app:destination="@id/selectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectionFragment"
+        android:name="com.example.weinshop.ui.selection.SelectionFragment"
+        android:label="Weine" >
+        <action
+            android:id="@+id/action_selectionFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <argument
+            android:name="category"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.weinshop.ui.selection.DetailFragment"
+        android:label="Details" >
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingCartFragment"
+        android:name="com.example.weinshop.ui.shoppingcart.ShoppingCartFragment"
+        android:label="Warenkorb" >
+        <action
+            android:id="@+id/action_shoppingCartFragment_to_orderedFragment"
+            app:destination="@id/orderedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderedFragment"
+        android:name="com.example.weinshop.ui.order.OrderedFragment"
+        android:label="OrderedFragment" />
+    <fragment
+        android:id="@+id/profilFragment"
+        android:name="com.example.weinshop.ui.profile.ProfilFragment"
+        android:label="Profil" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.weinshop.ui.selection.SearchFragment"
+        android:label="Suche" />
+</navigation>
