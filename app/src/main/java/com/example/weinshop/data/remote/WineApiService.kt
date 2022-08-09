@@ -12,6 +12,7 @@ const val BASE_URL = "http://syntax-institut.com/public/apps/JenniferHedtke/"
 
 
 interface WineApiService {
+
     @GET("data.json")
     suspend fun getWine(): MutableList<Wine>
 

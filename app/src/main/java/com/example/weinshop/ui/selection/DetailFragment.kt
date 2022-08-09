@@ -48,11 +48,9 @@ class DetailFragment : Fragment() {
                             binding.tvProductname.text = wineSelected.productName
                             binding.tvTaste.text = wineSelected.taste
                             binding.tvYear.text = wineSelected.year
-                            binding.tvPrice.text = String.format("%.2f", wineSelected.price)
+                            binding.tvPrice.text = "€" + String.format("%.2f", wineSelected.price)
                             binding.tvDescription.text = wineSelected.description
                         }
-
-
                     }
                 }
             }

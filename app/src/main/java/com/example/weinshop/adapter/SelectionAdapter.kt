@@ -59,7 +59,7 @@ class SelectionAdapter(
         holder.tvProductName.text = selectionItem.productName
         holder.tvYear.text = selectionItem.year
         holder.tvTaste.text = selectionItem.taste
-        holder.tvPrice.text = String.format("%.2f", selectionItem.price)
+        holder.tvPrice.text = "€" + String.format("%.2f", selectionItem.price)
 
         // Navigation von SelectionFragment zum Detailfragment beim Klick auf den "Zum Produkt" Button
         holder.btnProduct.setOnClickListener {

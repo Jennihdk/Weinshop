@@ -19,9 +19,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     var inputText = MutableLiveData<String>()
 
     // Die Listen werden in einer Variablen gespeichert
-    val wineList = repository.wineList
+    var wineList = repository.wineList
     val categories = repository.categories
-
+    val results = MutableLiveData<MutableList<Wine>>()
 
     /** Hier werden die Rohdaten von der DB gespeichert */
     // TODO: Wird gebraucht
@@ -31,19 +31,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     // TODO: Wird gebraucht
     val cartList = MutableLiveData<List<Wine>>()
 
-
-
-    val articleIndex: Long = 0
-
     var shoppingCartList = mutableListOf<Wine>()
-
-    private val _articleCounter = MutableLiveData(0)
-    val articleCounter: LiveData<Int>
-        get() = _articleCounter
-
-    private val _articleInCartExist = MutableLiveData(false)
-    val articleInCartExist: LiveData<Boolean>
-        get() = _articleInCartExist
 
     private val _currentArticle = MutableLiveData<Wine>(wineList.value?.get(0))
     val currentArticle: LiveData<Wine>
@@ -55,6 +43,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
         loadData()
+        results.value = mutableListOf()
     }
 
     fun loadData() {
@@ -71,6 +60,21 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     _loading.value = ApiStatus.DONE
                 }
             }
+        }
+    }
+
+    fun loadResults(search: String) {
+        val newResults = mutableListOf<Wine>()
+
+        viewModelScope.launch {
+            results.value!!.clear()
+            for (wine in wineList.value!!) {
+                if (wine.productName.lowercase().contains(search.lowercase())) {
+                    newResults.add(wine)
+                }
+            }
+
+            results.value = newResults
         }
     }
 
@@ -129,8 +133,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun convertShoppingCartToCartList() {
         val newWineList = mutableListOf<Wine>()
 
-
-
         for (shoppingCartItem in shoppingCart.value!!) {
             for (wine in wineList.value!!) {
                 if (wine.productName == shoppingCartItem.cartItemName) {
@@ -147,14 +149,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun totalPrice(): Double {
-        return 0.0 // TODO shoppingCartList.sumOf { it.price }
+        return shoppingCartList.sumOf { it.price * it.cartCounter }
     }
-
-    /*fun shoppingCartToWine(shoppingCart: ShoppingCart) {
-        viewModelScope.launch {
-            repository.getWineByName(shoppingCart.cartItemName)
-            println(repository.wineByName.value)
-
-        }
-    }*/
 }

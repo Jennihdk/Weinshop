@@ -1,21 +1,27 @@
 package com.example.weinshop.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weinshop.R
 import com.example.weinshop.data.models.Wine
+import com.example.weinshop.ui.selection.SearchFragmentDirections
 
 class SearchAdapter(
-    private val dataset: List<Wine>
+    private val dataset: List<Wine>,
+    private val setCurrentArticle: (Wine) -> Unit
 ): RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
     // Klassenvariablen für den Zugriff auf die Selection Elemente
     inner class SearchViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
         val tvProductNameSearch: TextView = view.findViewById(R.id.tv_productName)
         val tvTasteSearch: TextView = view.findViewById(R.id.tv_taste)
+        val cvSearchArticle: CardView = view.findViewById(R.id.searchCardView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
@@ -33,6 +39,12 @@ class SearchAdapter(
         val searchItem = dataset[position]
         holder.tvProductNameSearch.text = searchItem.productName
         holder.tvTasteSearch.text = searchItem.taste
+
+        holder.cvSearchArticle.setOnClickListener {
+            setCurrentArticle(searchItem)
+            val navController = holder.itemView.findNavController()
+            navController.navigate(SearchFragmentDirections.actionSearchFragmentToDetailFragment(searchItem.id))
+        }
     }
 
     override fun getItemCount(): Int {

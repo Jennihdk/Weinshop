@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.example.weinshop.MainViewModel
 import com.example.weinshop.R
 import com.example.weinshop.adapter.ShoppingCartAdapter
@@ -22,22 +23,15 @@ class ShoppingCartFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_shopping_cart, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shopping_cart, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        /*for (cartItem in viewModel.cartList) {
-            viewModel.shoppingCartToWine(cartItem)
-        }*/
-
         binding.shoppingCartRecyclerView.adapter =
             ShoppingCartAdapter(requireContext())
-
 
         // TODO: Wird gebraucht
         viewModel.wineList.observe(viewLifecycleOwner) {
@@ -53,8 +47,7 @@ class ShoppingCartFragment : Fragment() {
             }
         }
 
-
-        // TODO: Wird gebraucht
+        // Aktualisiert die Listenansicht, wenn diese sich verändert
         viewModel.cartList.observe(
             viewLifecycleOwner,
             Observer { list ->
@@ -62,6 +55,14 @@ class ShoppingCartFragment : Fragment() {
             }
         )
         val endPrice = viewModel.totalPrice()
-        binding.tvTotalPrice.text = String.format("%.2f", endPrice)
+
+        binding.tvTotalPrice.text = "€" + String.format("%.2f", endPrice)
+
+        // Navigiert beim Kauf zum Ordered Fragment und aktualisiert die Liste und den Preis
+        binding.btnBuy.setOnClickListener {
+            findNavController().navigate(ShoppingCartFragmentDirections.actionShoppingCartFragmentToOrderedFragment())
+            viewModel.shoppingCartList.clear()
+            (binding.shoppingCartRecyclerView.adapter as ShoppingCartAdapter).update(viewModel.shoppingCartList)
+        }
     }
 }

@@ -1,7 +1,9 @@
 package com.example.weinshop.data
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.weinshop.R
 import com.example.weinshop.data.local.WineDatabase
 import com.example.weinshop.data.models.Category
@@ -13,7 +15,7 @@ import kotlinx.coroutines.withContext
 
 const val TAG = "Repository"
 
-class WineRepository(private val database: WineDatabase) {
+class WineRepository(private val database: WineDatabase, private val api: WineApiService) {
 
     companion object {
         private var wineRepository: WineRepository? = null
@@ -26,16 +28,17 @@ class WineRepository(private val database: WineDatabase) {
             }
 
         private fun buildRepo(wineDatabase: WineDatabase): WineRepository =
-            WineRepository(wineDatabase)
+            WineRepository(wineDatabase, WineApiService.api)
     }
 
     val cartList: LiveData<List<ShoppingCart>> = database.wineDao.getAllFromShoppingCart()
 
-    lateinit var wineByName: LiveData<List<Wine>>
-
     val wineList: LiveData<List<Wine>> = database.wineDao.getAllFromWine()
-//    val shoppingCartList: List<ShoppingCart> = database.wineDao.getAllFromShoppingCart()
 
+    // Die LiveData Variable results enthält die Liste aus dem API call
+    private val _results = MutableLiveData<List<Wine>>()
+    val results: LiveData<List<Wine>>
+        get() = _results
 
     val categories = listOf(
         Category(R.drawable.redwineglass, "rot"),
@@ -52,10 +55,6 @@ class WineRepository(private val database: WineDatabase) {
             }
         }
     }
-
-    /*fun getCartList(): LiveData<List<ShoppingCart>> {
-       return database.wineDao.getAllFromShoppingCart()
-    }*/
 
     suspend fun insertInCart(wine: Wine) {
         withContext(Dispatchers.IO) {
@@ -74,18 +73,4 @@ class WineRepository(private val database: WineDatabase) {
             database.wineDao.deleteAllFromShoppingCart()
         }
     }
-
-//    suspend fun getWineByName(cartItemName: String) {
-//        withContext(Dispatchers.IO) {
-//            wineByName = database.wineDao.getWineByName(cartItemName)
-//        }
-//    }
-
-//    suspend fun getAllFromShoppingCart() {
-//        withContext(Dispatchers.IO) {
-//            database.wineDao.getAllFromShoppingCart()
-//        }
-//    }
-
-
 }

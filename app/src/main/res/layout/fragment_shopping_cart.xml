@@ -16,7 +16,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/shoppingCartRecyclerView"
             android:layout_width="0dp"
-            android:layout_height="526dp"
+            android:layout_height="600dp"
             android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"

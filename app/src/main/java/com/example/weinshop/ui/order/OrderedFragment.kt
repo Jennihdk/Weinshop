@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.example.weinshop.R
 import com.example.weinshop.databinding.FragmentOrderedBinding
 
@@ -23,5 +24,9 @@ class OrderedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.btnBackToShop.setOnClickListener {
+            findNavController().navigate(OrderedFragmentDirections.actionOrderedFragmentToCategoryFragment())
+        }
     }
 }

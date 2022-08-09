@@ -26,12 +26,10 @@ interface WineDatabaseDao {
     @Query("DELETE from ShoppingCart")
     fun deleteAllFromShoppingCart()
 
-
-    // TODO: Wird gebraucht
     @Query("SELECT COUNT(*) FROM Wine")
     fun getCountOfWine(): Int
 
-//    @Query("SELECT * from Wine WHERE productName = :cartItemName") // TODO
-//    fun getWineByName(cartItemName: String): LiveData<List<Wine>>
+    @Query("SELECT * from Wine WHERE productName = :searchItemName") // TODO
+    fun getWineByName(searchItemName: String): LiveData<List<Wine>>
 
 }
