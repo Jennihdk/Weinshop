@@ -1,6 +1,7 @@
 package com.example.weinshop.ui.shoppingcart
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -48,20 +49,19 @@ class ShoppingCartFragment : Fragment() {
         }
 
         // Aktualisiert die Listenansicht, wenn diese sich verändert
-        viewModel.cartList.observe(
+        viewModel.shoppingCartList.observe(
             viewLifecycleOwner,
             Observer {
                 (binding.shoppingCartRecyclerView.adapter as ShoppingCartAdapter).update(it)
+                val endPrice = viewModel.totalPrice()
+                binding.tvTotalPrice.text = "€" + String.format("%.2f", endPrice)
             }
         )
-
-        val endPrice = viewModel.totalPrice()
-        binding.tvTotalPrice.text = "€" + String.format("%.2f", endPrice)
 
         // Navigiert beim Kauf zum Ordered Fragment und aktualisiert die Liste und den Preis
         binding.btnBuy.setOnClickListener {
             findNavController().navigate(ShoppingCartFragmentDirections.actionShoppingCartFragmentToOrderedFragment())
-            viewModel.shoppingCartList.clear()
+            viewModel.shoppingCartList.value!!.clear()
             viewModel.saveBasketToDatabase()
         }
     }

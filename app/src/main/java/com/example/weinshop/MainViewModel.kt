@@ -1,5 +1,9 @@
 package com.example.weinshop
 
+/**
+ * Im Viewmodel befindet sich die Logik der App
+ */
+
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
@@ -23,18 +27,21 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val categories = repository.categories
     val results = MutableLiveData<MutableList<Wine>>()
 
-    // Hier werden die Rohdaten von der DB gespeichert
+    // Hier werden die Rohdaten von der Datenbank gespeichert
     val shoppingCart = repository.cartList
 
-    //Hier werden die Weine die im Warenkorb liegen mit Hilfe von shoppingCart gespeichert
-    val cartList = MutableLiveData<List<Wine>>()
+    // In der cartList wird der aktuelle Warenkorb gespeichert
+    //val cartList = MutableLiveData<List<Wine>>()
 
-    var shoppingCartList = mutableListOf<Wine>()
+    //
+    var shoppingCartList: MutableLiveData<MutableList<Wine>> = MutableLiveData<MutableList<Wine>>()
 
+    // Diese Variable speichert den aktuellen Artikel
     private val _currentArticle = MutableLiveData<Wine>(wineList.value?.get(0))
     val currentArticle: LiveData<Wine>
         get() = _currentArticle
 
+    // Diese Variable
     private val _loading = MutableLiveData<ApiStatus>()
     val loading: LiveData<ApiStatus>
         get() = _loading
@@ -42,6 +49,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     init {
         loadData()
         results.value = mutableListOf()
+        shoppingCartList.value = mutableListOf()
     }
 
     fun loadData() {
@@ -82,7 +90,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun addToShoppingCart(wineSelected: Wine) {
         var foundInBasket = false
 
-        for (basketItem in shoppingCartList) {
+        for (basketItem in shoppingCartList.value!!) {
             if (basketItem.productName == wineSelected.productName) {
                 basketItem.cartCounter += 1
                 foundInBasket = true
@@ -90,7 +98,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
         if (!foundInBasket) {
             wineSelected.cartCounter = 1
-            shoppingCartList.add(wineSelected)
+            shoppingCartList.value!!.add(wineSelected)
         }
 
         viewModelScope.launch {
@@ -99,10 +107,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun removeFromShoppingCart(wineSelected: Wine) {
-        for (basketItem in shoppingCartList) {
+        for (basketItem in shoppingCartList.value!!) {
             if (basketItem.productName == wineSelected.productName) {
                 if (basketItem.cartCounter == 1) {
-                    shoppingCartList.remove(basketItem)
+                    shoppingCartList.value!!.remove(basketItem)
                     break
                 } else {
                     basketItem.cartCounter -= 1
@@ -117,7 +125,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             repository.deleteAllFromShoppingCart()
 
-            for (basketItem in shoppingCartList) {
+            for (basketItem in shoppingCartList.value!!) {
                 repository.insertInCart(basketItem)
             }
         }
@@ -139,10 +147,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
 
-        cartList.value = newWineList
+        shoppingCartList.value = newWineList
     }
 
     fun totalPrice(): Double {
-        return shoppingCartList.sumOf { it.price * it.cartCounter }
+        return shoppingCartList.value!!.sumOf { it.price * it.cartCounter }
     }
 }

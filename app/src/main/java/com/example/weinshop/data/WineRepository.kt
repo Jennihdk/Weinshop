@@ -1,5 +1,15 @@
 package com.example.weinshop.data
 
+/**
+ * In dieser Klasse werden Informationen, wie
+ * Kategorieliste
+ * Weinliste,
+ * Warenkorbliste,
+ * Datenbank
+ * und Api
+ * zur Verfügung gestellt
+ */
+
 import android.content.Context
 import androidx.lifecycle.LiveData
 import com.example.weinshop.R
@@ -39,7 +49,7 @@ class WineRepository(private val database: WineDatabase, private val api: WineAp
 
     suspend fun getWineList() {
         withContext(Dispatchers.IO) {
-            // TODO: Bugfix, damit nicht jedes mal alle Weine hinzugefügt werden
+            // Bugfix, damit nicht jedes mal alle Weine hinzugefügt werden
             if (database.wineDao.getCountOfWine() == 0) {
                 val newWineList = WineApiService.api.getWine()
                 database.wineDao.insert(newWineList)

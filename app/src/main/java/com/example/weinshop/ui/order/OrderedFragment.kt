@@ -1,5 +1,9 @@
 package com.example.weinshop.ui.order
 
+/**
+ * In dieser Klasse ist
+ */
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

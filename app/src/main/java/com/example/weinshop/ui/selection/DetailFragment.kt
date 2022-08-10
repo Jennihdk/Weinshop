@@ -68,7 +68,7 @@ class DetailFragment : Fragment() {
     }
 
     fun refreshCartCounter(wineSelected: Wine) {
-        for (wine in viewModel.shoppingCartList) {
+        for (wine in viewModel.shoppingCartList.value!!) {
             if (wine.productName == wineSelected.productName) {
                 binding.tvArticleCounter.text = wine.cartCounter.toString()
                 return
