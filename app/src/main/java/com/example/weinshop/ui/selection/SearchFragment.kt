@@ -1,7 +1,6 @@
 package com.example.weinshop.ui.selection
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +11,7 @@ import androidx.lifecycle.Observer
 import com.example.weinshop.MainViewModel
 import com.example.weinshop.R
 import com.example.weinshop.adapter.SearchAdapter
-import com.example.weinshop.adapter.SelectionAdapter
-import com.example.weinshop.data.models.Wine
 import com.example.weinshop.databinding.FragmentSearchBinding
-import kotlin.math.log
 
 class SearchFragment : Fragment() {
 

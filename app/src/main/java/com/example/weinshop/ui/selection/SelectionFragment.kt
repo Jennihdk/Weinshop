@@ -41,7 +41,7 @@ class SelectionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         lateinit var wineList: List<Wine>
 
-        val selectionAdapter = SelectionAdapter(requireContext(), viewModel::setCurrentArticle)
+        val selectionAdapter = SelectionAdapter(viewModel::setCurrentArticle)
         binding.selectionRecyclerView.adapter = selectionAdapter
 
         viewModel.loading.observe(

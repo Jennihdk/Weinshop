@@ -1,6 +1,5 @@
 package com.example.weinshop.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +17,7 @@ class SearchAdapter(
 ): RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
     // Klassenvariablen für den Zugriff auf die Selection Elemente
-    inner class SearchViewHolder(private val view: View): RecyclerView.ViewHolder(view) {
+    inner class SearchViewHolder(val view: View): RecyclerView.ViewHolder(view) {
         val tvProductNameSearch: TextView = view.findViewById(R.id.tv_productName)
         val tvTasteSearch: TextView = view.findViewById(R.id.tv_taste)
         val cvSearchArticle: CardView = view.findViewById(R.id.searchCardView)

@@ -15,8 +15,6 @@ import com.example.weinshop.R
 import com.example.weinshop.data.models.Wine
 import com.example.weinshop.databinding.FragmentDetailBinding
 
-private const val TAG = "DetailFragment"
-
 class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding
@@ -59,12 +57,12 @@ class DetailFragment : Fragment() {
         refreshCartCounter(wineSelected!!)
 
         binding.ibAddShoppingCart.setOnClickListener {
-            viewModel.addToShoppingCart(wineSelected!!)
+            viewModel.addToShoppingCart(wineSelected)
             refreshCartCounter(wineSelected)
         }
 
         binding.ibRemoveShoppingCart.setOnClickListener {
-            viewModel.removeFromShoppingCart(wineSelected!!)
+            viewModel.removeFromShoppingCart(wineSelected)
             refreshCartCounter(wineSelected)
         }
     }

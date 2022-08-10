@@ -29,7 +29,7 @@ class CategoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val recyclerView = binding.catergoryReyclerView
-        recyclerView.adapter = CategoryAdapter(requireContext(), viewModel.categories)
+        recyclerView.adapter = CategoryAdapter(viewModel.categories)
         recyclerView.setHasFixedSize(true)
     }
 

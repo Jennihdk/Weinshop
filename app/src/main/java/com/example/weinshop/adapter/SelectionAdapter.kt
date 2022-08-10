@@ -1,7 +1,6 @@
 package com.example.weinshop.adapter
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +16,6 @@ import com.example.weinshop.data.models.Wine
 import com.example.weinshop.ui.selection.SelectionFragmentDirections
 
 class SelectionAdapter(
-    private val context: Context,
     private val setCurrentArticle: (Wine) -> Unit
 ): RecyclerView.Adapter<SelectionAdapter.SelectionViewHolder>() {
 

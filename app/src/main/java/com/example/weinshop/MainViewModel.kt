@@ -23,12 +23,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val categories = repository.categories
     val results = MutableLiveData<MutableList<Wine>>()
 
-    /** Hier werden die Rohdaten von der DB gespeichert */
-    // TODO: Wird gebraucht
+    // Hier werden die Rohdaten von der DB gespeichert
     val shoppingCart = repository.cartList
 
-    /** Hier werden die Weine die im Warenkorb liegen mit Hilfe von shoppingCart gespeichert */
-    // TODO: Wird gebraucht
+    //Hier werden die Weine die im Warenkorb liegen mit Hilfe von shoppingCart gespeichert
     val cartList = MutableLiveData<List<Wine>>()
 
     var shoppingCartList = mutableListOf<Wine>()
@@ -73,7 +71,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     newResults.add(wine)
                 }
             }
-
             results.value = newResults
         }
     }
@@ -92,9 +89,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
         if (!foundInBasket) {
-            val newWine = wineSelected
-            newWine.cartCounter = 1
-            shoppingCartList.add(newWine)
+            wineSelected.cartCounter = 1
+            shoppingCartList.add(wineSelected)
         }
 
         viewModelScope.launch {
@@ -116,6 +112,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         saveBasketToDatabase()
     }
 
+    // Speichert den aktuellen Warenkorb Zustand
     fun saveBasketToDatabase() {
         viewModelScope.launch {
             repository.deleteAllFromShoppingCart()
@@ -126,10 +123,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    /**
-     * Hier wird die Liste der Items im Warenkorb von der DB durchgegangen und konvertiert
-     */
-    // TODO: Wird gebraucht
+    // Hier wird die Liste der Items im Warenkorb von der DB durchgegangen und konvertiert
     fun convertShoppingCartToCartList() {
         val newWineList = mutableListOf<Wine>()
 

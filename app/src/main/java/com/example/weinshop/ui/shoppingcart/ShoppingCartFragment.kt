@@ -31,7 +31,7 @@ class ShoppingCartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.shoppingCartRecyclerView.adapter =
-            ShoppingCartAdapter(requireContext(), viewModel::addToShoppingCart, viewModel::removeFromShoppingCart)
+            ShoppingCartAdapter(viewModel::addToShoppingCart, viewModel::removeFromShoppingCart)
 
         // TODO: Wird gebraucht
         viewModel.wineList.observe(viewLifecycleOwner) {
@@ -50,20 +50,19 @@ class ShoppingCartFragment : Fragment() {
         // Aktualisiert die Listenansicht, wenn diese sich verändert
         viewModel.cartList.observe(
             viewLifecycleOwner,
-            Observer { list ->
-                (binding.shoppingCartRecyclerView.adapter as ShoppingCartAdapter).update(list)
+            Observer {
+                (binding.shoppingCartRecyclerView.adapter as ShoppingCartAdapter).update(it)
             }
         )
-        val endPrice = viewModel.totalPrice()
 
+        val endPrice = viewModel.totalPrice()
         binding.tvTotalPrice.text = "€" + String.format("%.2f", endPrice)
 
         // Navigiert beim Kauf zum Ordered Fragment und aktualisiert die Liste und den Preis
         binding.btnBuy.setOnClickListener {
             findNavController().navigate(ShoppingCartFragmentDirections.actionShoppingCartFragmentToOrderedFragment())
             viewModel.shoppingCartList.clear()
-            (binding.shoppingCartRecyclerView.adapter as ShoppingCartAdapter).update(viewModel.shoppingCartList)
-
+            viewModel.saveBasketToDatabase()
         }
     }
 }

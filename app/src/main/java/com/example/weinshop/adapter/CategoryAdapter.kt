@@ -13,7 +13,6 @@ import com.example.weinshop.data.models.Category
 import com.example.weinshop.ui.selection.CategoryFragmentDirections
 
 class CategoryAdapter(
-    private val context: Context,
     private val dataset: List<Category>
 ) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
