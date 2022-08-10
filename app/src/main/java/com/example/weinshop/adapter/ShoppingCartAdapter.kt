@@ -19,7 +19,10 @@ import com.example.weinshop.data.models.Wine
 import kotlinx.coroutines.launch
 
 class ShoppingCartAdapter(
-    private val context: Context
+    private val context: Context,
+    private val addToShoppingCart: (Wine) -> Unit,
+    private val removeFromShoppingCart: (Wine) -> Unit
+
 ): RecyclerView.Adapter<ShoppingCartAdapter.ShoppingCartViewHolder>() {
 
     var items: List<Wine> = emptyList()
@@ -62,7 +65,15 @@ class ShoppingCartAdapter(
         holder.tvArticleCount.text = shoppingCartItem.cartCounter.toString()
         holder.tvPriceCart.text = "€" + String.format("%.2f", shoppingCartItem.price)
 
-        fun quantityShoppingCart(quantity: Int) {
+        holder.ibCartAdd.setOnClickListener {
+            addToShoppingCart(shoppingCartItem)
+        }
+
+        holder.ibCartRemove.setOnClickListener {
+            removeFromShoppingCart(shoppingCartItem)
+        }
+
+        /*fun quantityShoppingCart(quantity: Int) {
             if (shoppingCartItem.cartCounter == 0) {
                 return
             } else {
@@ -79,7 +90,7 @@ class ShoppingCartAdapter(
         holder.ibCartRemove.setOnClickListener {
             if (shoppingCartItem.cartCounter > 0)
             quantityShoppingCart(-1)
-        }
+        }*/
     }
 
     override fun getItemCount(): Int {
@@ -89,6 +100,8 @@ class ShoppingCartAdapter(
     fun update(items: List<Wine>) {
         this.items = items
 
+        Log.e("1234", "hallo")
+        notifyItemRangeRemoved(0,items.size)
         notifyDataSetChanged()
     }
 }

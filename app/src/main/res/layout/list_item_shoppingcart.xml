@@ -74,11 +74,11 @@
 
     <TextView
         android:id="@+id/tv_articleCount"
-        android:layout_width="6dp"
-        android:layout_height="12dp"
+        android:layout_width="17dp"
+        android:layout_height="11dp"
         android:layout_marginStart="16dp"
-        android:text="0"
-        android:textAlignment="textStart"
+        android:text="00"
+        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="?attr/colorOnSecondary"
         android:textSize="10sp"

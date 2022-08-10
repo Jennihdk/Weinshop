@@ -31,7 +31,7 @@ class ShoppingCartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.shoppingCartRecyclerView.adapter =
-            ShoppingCartAdapter(requireContext())
+            ShoppingCartAdapter(requireContext(), viewModel::addToShoppingCart, viewModel::removeFromShoppingCart)
 
         // TODO: Wird gebraucht
         viewModel.wineList.observe(viewLifecycleOwner) {
@@ -63,6 +63,7 @@ class ShoppingCartFragment : Fragment() {
             findNavController().navigate(ShoppingCartFragmentDirections.actionShoppingCartFragmentToOrderedFragment())
             viewModel.shoppingCartList.clear()
             (binding.shoppingCartRecyclerView.adapter as ShoppingCartAdapter).update(viewModel.shoppingCartList)
+
         }
     }
 }
