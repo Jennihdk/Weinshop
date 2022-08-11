@@ -32,8 +32,10 @@ class CategoryAdapter(
         return CategoryViewHolder(adapterLayout)
     }
 
-    // hier findet der Recyclingprozess statt
-    // die vom ViewHolder bereitgestellten Parameter werden verändert
+    /*
+     * Diese Methode greift auf die Datensätze in der Liste zu mit dataset[]
+     * Mit holder bekommen die TextViews die entsprechenden Daten aus der Liste zugewiesen
+     */
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val categoryItem = dataset[position]
         holder.tvCategoryName.text = categoryItem.categoryName.uppercase()

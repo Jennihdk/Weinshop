@@ -27,6 +27,7 @@ class StartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // clickListener, um in den Shop zu gelangen
         binding.btnShop.setOnClickListener {
             findNavController().navigate(StartFragmentDirections.actionStartFragmentToCategoryFragment())
         }

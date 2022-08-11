@@ -1,5 +1,11 @@
 package com.example.weinshop.data.models
 
+/**
+ * Diese Klasse steht für einen Warenkorbartikel mit den Eigenschaften
+ * @param cartItemName Artikelname
+ * @param quantity Artikelanzahl
+ */
+
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

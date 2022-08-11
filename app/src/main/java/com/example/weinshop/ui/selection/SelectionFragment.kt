@@ -1,5 +1,10 @@
 package com.example.weinshop.ui.selection
 
+/**
+ * Diese Klasse kümmert sich um die Weinlisten der jeweiligen Kategorien
+ * Rotweinliste, Weißweinliste und Roséweinliste
+ */
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -39,6 +44,8 @@ class SelectionFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         lateinit var wineList: List<Wine>
 
         val selectionAdapter = SelectionAdapter(viewModel::setCurrentArticle)
@@ -60,6 +67,7 @@ class SelectionFragment : Fragment() {
             }
         }
 
+        // Beobachtet die Weinliste und filtert die Weine nach Kategorie
         viewModel.wineList.observe(
             viewLifecycleOwner,
             Observer { list ->

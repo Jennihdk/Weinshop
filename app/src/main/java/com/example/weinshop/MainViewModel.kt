@@ -31,17 +31,14 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val shoppingCart = repository.cartList
 
     // In der cartList wird der aktuelle Warenkorb gespeichert
-    //val cartList = MutableLiveData<List<Wine>>()
-
-    //
-    var shoppingCartList: MutableLiveData<MutableList<Wine>> = MutableLiveData<MutableList<Wine>>()
+    var shoppingCartList = MutableLiveData<MutableList<Wine>>()
 
     // Diese Variable speichert den aktuellen Artikel
     private val _currentArticle = MutableLiveData<Wine>(wineList.value?.get(0))
     val currentArticle: LiveData<Wine>
         get() = _currentArticle
 
-    // Diese Variable
+    // Diese Variable speichert den Api Status
     private val _loading = MutableLiveData<ApiStatus>()
     val loading: LiveData<ApiStatus>
         get() = _loading
@@ -69,6 +66,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    // Diese Funktion zeigt die Suchergebnisse
     fun loadResults(search: String) {
         val newResults = mutableListOf<Wine>()
 
@@ -87,6 +85,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _currentArticle.value = wine
     }
 
+    // Diese Funktion fügt einen Artikel zum Warenkorb hinzu
     fun addToShoppingCart(wineSelected: Wine) {
         var foundInBasket = false
 
@@ -106,6 +105,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    // Diese Funktion löscht einen Artikel aus dem Warenkorb
     fun removeFromShoppingCart(wineSelected: Wine) {
         for (basketItem in shoppingCartList.value!!) {
             if (basketItem.productName == wineSelected.productName) {
@@ -120,7 +120,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         saveBasketToDatabase()
     }
 
-    // Speichert den aktuellen Warenkorb Zustand
+    // Diese Funtion speichert den aktuellen Warenkorb Zustand
     fun saveBasketToDatabase() {
         viewModelScope.launch {
             repository.deleteAllFromShoppingCart()
@@ -150,6 +150,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         shoppingCartList.value = newWineList
     }
 
+    // Diese Funktion rechnet den Gesamtpreis im Warenkorb zusammen
     fun totalPrice(): Double {
         return shoppingCartList.value!!.sumOf { it.price * it.cartCounter }
     }

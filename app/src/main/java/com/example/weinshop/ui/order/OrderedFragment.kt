@@ -1,7 +1,7 @@
 package com.example.weinshop.ui.order
 
 /**
- * In dieser Klasse ist
+ * Diese Klasse ist stellt den Screen dar, sobald Artikel gekauft wurden
  */
 
 import android.os.Bundle
@@ -29,6 +29,7 @@ class OrderedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // onclickListener, um zurück zum Shop zu gelangen
         binding.btnBackToShop.setOnClickListener {
             findNavController().navigate(OrderedFragmentDirections.actionOrderedFragmentToCategoryFragment())
         }

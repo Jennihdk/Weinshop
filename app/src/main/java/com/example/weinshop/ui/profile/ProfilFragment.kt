@@ -1,5 +1,10 @@
 package com.example.weinshop.ui.profile
 
+/**
+ * Diese Klasse ist für das Profil zuständig
+ *
+ */
+
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -28,6 +33,9 @@ class ProfilFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /**
+         * Klassenvariablen
+         */
         val editFirstName = binding.textfirstNameLayout
         val editLastName = binding.textlastNameLayout
         val editAdress = binding.textAdressLayout
@@ -40,17 +48,15 @@ class ProfilFragment : Fragment() {
         val postalCode = editPostalCode.editText.toString()
         val email = editEmail.editText.toString()
 
+        // Mit dieser Funktion können die Daten gespeichert werden
         fun saveData() {
             if (!TextUtils.isEmpty(firstName)
                 && !TextUtils.isEmpty(lastName)
                 && !TextUtils.isEmpty(adress)
                 && !TextUtils.isEmpty(postalCode)
                 && !TextUtils.isEmpty(email)) {
-                Log.e("fsgs", firstName.length.toString())
 
                 Toast.makeText(requireContext(),"Deine Daten wurden gespeichert", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(requireContext(), "Deine Daten müssen vollständig sein", Toast.LENGTH_SHORT).show()
             }
         }
 

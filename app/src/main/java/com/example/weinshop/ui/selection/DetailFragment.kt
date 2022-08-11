@@ -1,5 +1,10 @@
 package com.example.weinshop.ui.selection
 
+/**
+ * Diese Klasse kümmert sich um die Detailansicht des aktuellen Artikel,
+ * den man ausgewählt hat
+ */
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -31,8 +36,12 @@ class DetailFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Klassenvariable für den ausgewählten Artikel
         val wineSelected = viewModel.currentArticle.value
 
+        // Beobachtet die Weinliste
         viewModel.wineList.observe(
             viewLifecycleOwner,
             Observer {
@@ -56,17 +65,20 @@ class DetailFragment : Fragment() {
 
         refreshCartCounter(wineSelected!!)
 
+        // clickListener, um den ausgewählten Artikel zum Warenkorb hinzuzufügen
         binding.ibAddShoppingCart.setOnClickListener {
             viewModel.addToShoppingCart(wineSelected)
             refreshCartCounter(wineSelected)
         }
 
+        // clickListener, um den ausgewählten Artikel aus dem Warenkorb zu entfernen
         binding.ibRemoveShoppingCart.setOnClickListener {
             viewModel.removeFromShoppingCart(wineSelected)
             refreshCartCounter(wineSelected)
         }
     }
 
+    // Diese Funktion, sorgt dafür, dass der Counter im Detailscreen und Warenkorbscreen gleich sind
     fun refreshCartCounter(wineSelected: Wine) {
         for (wine in viewModel.shoppingCartList.value!!) {
             if (wine.productName == wineSelected.productName) {

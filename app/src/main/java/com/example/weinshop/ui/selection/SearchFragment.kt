@@ -1,5 +1,9 @@
 package com.example.weinshop.ui.selection
 
+/**
+ * Diese Klasse ist zuständig für das Laden der Suchergebnisse
+ */
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -33,12 +37,15 @@ class SearchFragment : Fragment() {
 
         viewModel.wineList.observe(viewLifecycleOwner) { _ -> }
 
+        // Beobachtet das Eingabefeld der Suche und lädt die Weine
         viewModel.inputText.observe(
             viewLifecycleOwner,
             Observer {
                 viewModel.loadResults(it)
             }
         )
+
+        // Beobachtet die Ergebnisliste und lädt bei Änderung den Adapter neu
         viewModel.results.observe(
             viewLifecycleOwner,
             Observer {

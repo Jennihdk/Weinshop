@@ -1,5 +1,9 @@
 package com.example.weinshop.ui.selection
 
+/**
+ * Diese Klasse ist zuständig für das UI des Kategoriescreens
+ */
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -28,6 +32,8 @@ class CategoryFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         val recyclerView = binding.catergoryReyclerView
         recyclerView.adapter = CategoryAdapter(viewModel.categories)
         recyclerView.setHasFixedSize(true)

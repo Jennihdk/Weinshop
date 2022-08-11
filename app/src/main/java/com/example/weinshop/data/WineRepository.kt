@@ -47,6 +47,10 @@ class WineRepository(private val database: WineDatabase, private val api: WineAp
         Category(R.drawable.rosewineglass, "rosé")
     )
 
+    /**
+     * Datenbankfunktionen
+     */
+
     suspend fun getWineList() {
         withContext(Dispatchers.IO) {
             // Bugfix, damit nicht jedes mal alle Weine hinzugefügt werden

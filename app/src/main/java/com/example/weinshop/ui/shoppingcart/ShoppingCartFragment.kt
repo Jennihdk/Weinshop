@@ -34,14 +34,15 @@ class ShoppingCartFragment : Fragment() {
         binding.shoppingCartRecyclerView.adapter =
             ShoppingCartAdapter(viewModel::addToShoppingCart, viewModel::removeFromShoppingCart)
 
-        // TODO: Wird gebraucht
+        /**
+         * Die Weinlisten und der Warenkorb werden zu einer Warenkorbliste konvertiert
+         */
         viewModel.wineList.observe(viewLifecycleOwner) {
             if (viewModel.wineList.value != null && viewModel.shoppingCart.value != null) {
                 viewModel.convertShoppingCartToCartList()
             }
         }
 
-        // TODO: Wird gebraucht
         viewModel.shoppingCart.observe(viewLifecycleOwner) {
             if (viewModel.wineList.value != null && viewModel.shoppingCart.value != null) {
                 viewModel.convertShoppingCartToCartList()
