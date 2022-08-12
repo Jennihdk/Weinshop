@@ -1,7 +1,10 @@
 package com.example.weinshop.ui.shoppingcart
 
+/**
+ * Diese Klasse kümmert sich um die Artikel, die im Warenkorb angezeigt werden sollen
+ */
+
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
