@@ -14,16 +14,16 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.example.weinshop.ApiStatus
-import com.example.weinshop.MainViewModel
 import com.example.weinshop.R
 import com.example.weinshop.adapter.SelectionAdapter
 import com.example.weinshop.data.models.Wine
 import com.example.weinshop.databinding.FragmentSelectionBinding
+import com.example.weinshop.MainViewModel as MainViewModel1
 
 class SelectionFragment : Fragment() {
 
     private lateinit var binding: FragmentSelectionBinding
-    private val viewModel: MainViewModel by activityViewModels()
+    private val viewModel: MainViewModel1 by activityViewModels()
     private var category: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

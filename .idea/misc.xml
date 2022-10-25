@@ -12,9 +12,9 @@
         <entry key="app/src/main/res/layout/fragment_selection.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/layout/fragment_shopping_cart.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/layout/fragment_start.xml" value="0.26510416666666664" />
-        <entry key="app/src/main/res/layout/list_item_category.xml" value="0.26510416666666664" />
+        <entry key="app/src/main/res/layout/list_item_category.xml" value="0.1" />
         <entry key="app/src/main/res/layout/list_item_search.xml" value="0.26510416666666664" />
-        <entry key="app/src/main/res/layout/list_item_selection.xml" value="0.26510416666666664" />
+        <entry key="app/src/main/res/layout/list_item_selection.xml" value="0.4745096842447917" />
         <entry key="app/src/main/res/layout/list_item_shoppingcart.xml" value="0.9357960802443483" />
         <entry key="app/src/main/res/menu/toolbar_menu.xml" value="0.26614583333333336" />
       </map>

@@ -29,6 +29,7 @@ class WineRepository(private val database: WineDatabase, private val api: WineAp
         fun getInstance(context: Context): WineRepository =
             wineRepository ?: buildRepo(
                 WineDatabase.getDatabase(context.applicationContext)
+
             ).also{
                 wineRepository = it
             }
